@@ -1,0 +1,12 @@
+Python 3 install spyder and jupyter notebook on Windows 10.
+
+1. python -m pip install --upgrade pip
+2. pip install pyqt5
+3. pip install spyder
+Spyder is installed successfully after this, we can now run "spyder3" at command line to 
+start the spyder program
+4. pip install jupyter
+jupyter notebook is installed successfully after this, we can now run "jupyter notebook"
+at command line to start the jupyter notebook program.
+
+
