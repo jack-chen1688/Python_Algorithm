@@ -1,4 +1,6 @@
-Python 3 install spyder and jupyter notebook on Windows 10.
+Install spyder and jupyter notebook on Windows 10
+=================================================
+Python 3.7.0 was used on the windows 10.
 
 1. python -m pip install --upgrade pip
 2. pip install pyqt5
@@ -9,4 +11,20 @@ start the spyder program
 jupyter notebook is installed successfully after this, we can now run "jupyter notebook"
 at command line to start the jupyter notebook program.
 
+Configure jupyter notebook on Windows
+=====================================
+Below are the steps to configure jupyter-notebook's default startup directory and browser.
+1. Run jupyter notebook --generate-config
+This will gerenate a file of C:\Users\USERNAME\.jupyter\jupyter_notebook_config.py
 
+2. To configure startup directory, comment below line 
+# c.NotebookApp.notebook_dir = ''
+and change it to
+c.NotebookApp.notebook_dir = 'C:/Users/xuehua/Documents/GitHub/Python_Algorithm/LeetCode'
+
+3. To configure browser to use chrome, comment the line below.
+# c.NotebookApp.browser = ''
+and change it to below three lines
+import webbrowser
+webbrowser.register('chrome', None, webbrowser.GenericBrowser('C:\\Program Files (x86)\Google\\Chrome\\Application\\chrome.exe'))
+c.NotebookApp.browser = "chrome"
