@@ -16,7 +16,6 @@ def next_perm(perm):
         return perm[::-1]
     
     result = []
-    print("found", found)
     for i in range(len(perm) - 1, found - 1, -1):
         if perm[i] < perm[found - 1]:
             result.append(perm[i])
@@ -28,12 +27,39 @@ def next_perm(perm):
             break
     return result
 
-if __name__ == "__main__":
-    perm = [5,2,1,3,4,0]
+def next_perm_inplace(perm):
+
+    found = None
+    for i in range(len(perm) - 1, 0, -1):
+        if perm[i] > perm[i-1]:
+            found = i 
+            break
+    if found == None:
+        perm.reverse()
+        return
     
+    #perm[found:] = reversed(perm[found:])
+    for i in range((len(perm) - found)//2):
+        perm[found+i], perm[-1-i] = perm[-1-i], perm[found+i]
+
+    for i in range(found, len(perm)):
+        if perm[i] > perm[found-1]:
+            perm[i], perm[found-1] = perm[found-1], perm[i]
+            break 
+    return
+    
+def main():
+    perm = [5,2,1,3,4,0]
     for i in range(10):
         nxt = next_perm(perm)
         perm = nxt
-        print(nxt)
-        
+        print(perm)
     
+    perm = [5,2,1,3,4,0]
+    for i in range(10):
+        next_perm_inplace(perm)
+        print("in-place", perm)
+    
+        
+if __name__ == "__main__":
+    main()
