@@ -5,8 +5,12 @@ Created on Thu Jan 10 21:34:47 2019
 @author: windr
 """
 
-from userlib import BinaryTree 
 
-BinaryTree.init(0)
+#import sys
+#sys.path.append(os.path.abspath('../lib'))
 
-print (BinaryTree.val)
+from userlib.BinaryTree import BinaryTreeNode
+
+node = BinaryTreeNode(0)
+
+print (node.val)
